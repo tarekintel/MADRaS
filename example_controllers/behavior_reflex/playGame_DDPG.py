@@ -197,6 +197,8 @@ if __name__ == "__main__":
 		# raise e
 		print("Usage : python %s <port>" % (sys.argv[0]))
 		sys.exit()
+	
+	train_indicator = 0
 
 	if len(sys.argv) > 2:
 		json_config = sys.argv[2]
@@ -218,6 +220,8 @@ if __name__ == "__main__":
 		torcsPort = config_dict['torcsPort']
 		configFile = config_dict['configFile']
 
+		train_indicator = config_dict['train_indicator']
+
 	print('is_training : ' + str(is_training))
 	print('Starting best_reward : ' + str(start_reward))
 	print( total_explore )
@@ -228,5 +232,5 @@ if __name__ == "__main__":
 
 	# f_diagnostics = open('output_logs/diagnostics_for_window_' + sys.argv[1]+'_with_fixed_episode_length', 'w') #Add date and time to file name
 	f_diagnostics = ""
-	playGame(f_diagnostics, train_indicator=0, port=port)
+	playGame(f_diagnostics, train_indicator=train_indicator, port=port)
 	# f_diagnostics.close()
