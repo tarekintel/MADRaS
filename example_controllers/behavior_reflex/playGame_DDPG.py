@@ -193,7 +193,6 @@ if __name__ == "__main__":
 
 	try:
 		port = int(sys.argv[1])
-        print(len(sys.argv))
 	except Exception as e:
 		# raise e
 		print("Usage : python %s <port>" % (sys.argv[0]))
