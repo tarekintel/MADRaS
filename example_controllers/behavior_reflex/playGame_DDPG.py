@@ -13,6 +13,8 @@ import os
 from example_controllers.behavior_reflex.configurations import *
 from example_controllers.behavior_reflex.DDPG.ddpg import *
 
+import json
+
 import gc
 gc.enable()
 
@@ -191,10 +193,31 @@ if __name__ == "__main__":
 
 	try:
 		port = int(sys.argv[1])
+        print(len(sys.argv))
 	except Exception as e:
 		# raise e
 		print("Usage : python %s <port>" % (sys.argv[0]))
 		sys.exit()
+
+	if len(sys.argv) > 2:
+		json_config = sys.argv[2]
+
+		with open(json_config, 'r') as f:
+			config_dict = json.load(f)
+		
+		visualize_after = config_dict['visualize_after']
+		is_training = config_dict['is_training']
+		total_explore = config_dict['total_explore']
+		max_eps = config_dict['max_eps']
+		max_steps_eps = config_dict['max_steps_eps']
+		wait_at_beginning = config_dict['wait_at_beginning']
+		initial_wait_period = config_dict['initial_wait_period']
+		epsilon_start = config_dict['epsilon_start']
+		start_reward = config_dict['start_reward']
+
+		save_location = config_dict['save_location']
+		torcsPort = config_dict['torcsPort']
+		configFile = config_dict['configFile']
 
 	print('is_training : ' + str(is_training))
 	print('Starting best_reward : ' + str(start_reward))
