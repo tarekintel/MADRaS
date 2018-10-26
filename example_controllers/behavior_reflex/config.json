@@ -15,5 +15,7 @@
     "save_location": "./weights/",
 
     "torcsPort": 3101,
-    "configFile": "~/.torcs/config/raceman/quickrace.xml"
+    "configFile": "~/.torcs/config/raceman/quickrace.xml",
+
+    "train_indicator": 1
 }
