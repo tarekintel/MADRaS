@@ -21,8 +21,25 @@ gc.enable()
 np.random.seed(1337)
 
 
-def playGame(f_diagnostics, train_indicator, port=3101):    # 1 means Train, 0 means simply Run
+def playGame(f_diagnostics, train_indicator, port=3101, config_dict=None):    # 1 means Train, 0 means simply Run
 	
+	if config_dict != None:
+		visualize_after = config_dict['visualize_after']
+		is_training = config_dict['is_training']
+		total_explore = config_dict['total_explore']
+		max_eps = config_dict['max_eps']
+		max_steps_eps = config_dict['max_steps_eps']
+		wait_at_beginning = config_dict['wait_at_beginning']
+		initial_wait_period = config_dict['initial_wait_period']
+		epsilon_start = config_dict['epsilon_start']
+		start_reward = config_dict['start_reward']
+
+		save_location = config_dict['save_location']
+		torcsPort = config_dict['torcsPort']
+		configFile = config_dict['configFile']
+
+		train_indicator = config_dict['train_indicator']	
+
 	action_dim = 3  #Steering/Acceleration/Brake
 	state_dim = 65  #of sensors input
 

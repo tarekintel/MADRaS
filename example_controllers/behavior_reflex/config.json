@@ -17,5 +17,7 @@
     "torcsPort": 3101,
     "configFile": "~/.torcs/config/raceman/quickrace.xml",
 
-    "train_indicator": 1
+    "train_indicator": 1,
+
+    "num_agents": 3
 }
