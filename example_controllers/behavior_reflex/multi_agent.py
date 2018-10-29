@@ -15,7 +15,7 @@ import json
 if __name__ == "__main__":
 
         config_dict = None
-        num_workers = 3
+        num_agents = 3
 
         if len(sys.argv) > 1:
                 json_config = sys.argv[1]
@@ -23,12 +23,12 @@ if __name__ == "__main__":
                 with open(json_config, 'r') as f:
                         config_dict = json.load(f)
                 
-                num_workers = config_dict['num_agents']
+                num_agents = config_dict['num_agents']
 
                 
 
         with tf.device("/cpu:0"): 
-                # num_workers = 3 #multiprocessing.cpu_count() #use this when you want to use all the cpus
+                num_workers = num_agents #multiprocessing.cpu_count() #use this when you want to use all the cpus
                 print("numb of workers is" + str(num_workers))
 
         with tf.Session() as sess:
